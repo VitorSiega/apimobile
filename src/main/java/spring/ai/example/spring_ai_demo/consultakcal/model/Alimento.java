@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Data
-@Table(name = "Alimento")
+@Table(name = "alimento")
 @Entity
 public class Alimento {
 
@@ -29,8 +29,8 @@ public class Alimento {
     @Column(name = "nome", nullable = false, columnDefinition = "VARCHAR(40)")
     private String nome;
 
-    @Column
-    private Float kcal;
+    @Column(name = "gramas", nullable = false, columnDefinition = "BIGINT")
+    private Float gramas;
 
     @ManyToOne
     @JoinColumn(name = "cardapio_cliente_id")
