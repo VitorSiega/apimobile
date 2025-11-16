@@ -14,24 +14,25 @@ import spring.ai.example.spring_ai_demo.consultakcal.repository.CardapioClienteR
 @Service
 public class CardapioClienteService {
 
-    @Autowired
-    private CardapioClienteRepository cardapioClienteRepository;
+        @Autowired
+        private CardapioClienteRepository cardapioClienteRepository;
 
-    public void salvarCardapio(CardapioClienteDTO cardapioClienteDTO) {
-        CardapioCliente cardapioCliente = CardapioCliente.builder()
-                .listaAlimentos(new ArrayList<>())
-                .build();
+        public void salvarCardapio(CardapioClienteDTO cardapioClienteDTO) {
+                CardapioCliente cardapioCliente = CardapioCliente.builder()
+                                .listaAlimentos(new ArrayList<>())
+                                .build();
 
-        List<Alimento> alimentos = cardapioClienteDTO.alimentos().stream()
-                .map(a -> Alimento.builder()
-                        .nome(a.nome())
-                        .cardapioCliente(cardapioCliente)
-                        .build())
-                .toList();
+                List<Alimento> alimentos = cardapioClienteDTO.alimentos().stream()
+                                .map(a -> Alimento.builder()
+                                                .nome(a.nome())
+                                                .gramas(a.gramas())
+                                                .cardapioCliente(cardapioCliente)
+                                                .build())
+                                .toList();
 
-        cardapioCliente.setListaAlimentos(alimentos);
-        cardapioClienteRepository.save(cardapioCliente);
+                cardapioCliente.setListaAlimentos(alimentos);
+                cardapioClienteRepository.save(cardapioCliente);
 
-    }
+        }
 
 }
