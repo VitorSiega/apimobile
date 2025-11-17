@@ -5,10 +5,10 @@ CREATE TABLE cardapiocliente (
     id BIGINT NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (id)
 );
-CREATE TABLE Alimento (
+CREATE TABLE alimento (
     id BIGINT NOT NULL AUTO_INCREMENT,
     nome VARCHAR(40) NOT NULL,
-    kcal FLOAT,
+    gramas FLOAT,
     cardapio_cliente_id BIGINT,
     PRIMARY KEY (id),
     CONSTRAINT fk_alimento_cardapio
@@ -17,7 +17,7 @@ CREATE TABLE Alimento (
         ON DELETE SET NULL
         ON UPDATE CASCADE
 );
-CREATE TABLE ConsultaModel (
+CREATE TABLE consultaModel (
     id BIGINT NOT NULL AUTO_INCREMENT,
     resposta TEXT NOT NULL,
     PRIMARY KEY (id)
